@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MoneyMap
+
+All-in-one personal finance app: budgeting, debt payoff planning, and credit card rewards optimization.
+
+## Overview
+
+MoneyMap helps households understand their complete financial picture in one place. It combines:
+
+- **Financial Dashboard** — Net position, total debt, credit utilization, and key alerts at a glance
+- **Account Tracking** — Manually track bank accounts, credit cards, mortgages, auto loans, HELOCs, and personal loans
+- **Debt Payoff Planner** — Avalanche and snowball calculators with interactive extra-payment slider and payoff timeline charts
+- **HELOC Refinance Calculator** — Compare interest-only vs. fixed-rate amortizing loans side-by-side
+- **Credit Card Rewards Guide** — Category-by-category "best card to use" recommendations based on your wallet
+- **Benefits Tracker** — Track expiring card credits and recurring benefits with reminders
+- **Income & Expense Tracking** — Stable vs. variable income, recurring bills with due dates
+
+## Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router) + TypeScript
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) + custom design tokens
+- **UI Components**: Custom components inspired by shadcn/ui patterns
+- **Charts**: [Recharts](https://recharts.org/)
+- **State**: [Zustand](https://zustand-demo.pmnd.rs/) with localStorage persistence
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Deployment**: [Netlify](https://netlify.com/)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/
+│   ├── page.tsx              # Landing page
+│   └── (app)/                # App layout with sidebar/bottom nav
+│       ├── dashboard/        # Financial overview
+│       ├── accounts/         # Account, income, expense management
+│       ├── debt-plan/        # Debt payoff + HELOC calculator
+│       ├── rewards/          # Card rewards guide + benefits tracker
+│       └── settings/         # Theme, export, data management
+├── components/
+│   ├── nav-shell.tsx         # Responsive navigation (sidebar + bottom tabs)
+│   ├── theme-provider.tsx    # Light/dark/system theme
+│   └── ui/                   # Reusable UI primitives
+└── lib/
+    ├── calculations.ts       # Financial calculation engine
+    ├── store.ts              # Zustand store with all CRUD operations
+    ├── types.ts              # TypeScript type definitions
+    └── utils.ts              # Utility functions
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Data Privacy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All data is stored locally in your browser's localStorage. Nothing is sent to any server. You can export your data as JSON or CSV from Settings, and delete all data at any time.
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Private — not open source.
